@@ -8,11 +8,13 @@ import {
   TextFooterItem,
   TitleHeaderItem,
 } from "./grid-style";
+import { useNavigation } from "@react-navigation/native";
 
 const GridItems = () => {
+  const navigation = useNavigation();
   return (
     <ContainerGrid>
-      <Item>
+      <Item onPress={() => navigation.navigate("Chat")}>
         <HeaderItem>
           <PhotoHeaderItem
             source={{ uri: "https://reactnative.dev/img/logo-og.png" }}

@@ -19,7 +19,7 @@ export const ContainerHeader = styled.View`
   z-index: 1;
 `;
 
-export const ContainerHeaderChat = styled.View`
+export const ContainerHeaderChat = styled.TouchableOpacity`
   position: absolute;
   right: 20px;
   top: 20px;

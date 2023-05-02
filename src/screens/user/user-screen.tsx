@@ -14,16 +14,24 @@ import {
   TitleForm,
 } from "./user-style";
 import Icon from "react-native-vector-icons/Ionicons";
+import { useNavigation } from "@react-navigation/native";
 
 const UserScreen = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [pass, setPass] = useState("");
-
+  const navigation = useNavigation();
   return (
     <ContainerUser>
       <ContainerBack>
-        <Icon name="chevron-back-outline" size={25} color="#fff" />
+        <Icon
+          name="chevron-back-outline"
+          size={25}
+          color="#fff"
+          onPress={() => {
+            navigation.goBack();
+          }}
+        />
       </ContainerBack>
       <ContainerPhoto>
         <PhotoUser

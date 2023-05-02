@@ -15,22 +15,36 @@ import {
 } from "./chat-style";
 import { useState } from "react";
 import { Dimensions } from "react-native";
+import Ballon from "../../components/ballon/ballon";
+import { useNavigation } from "@react-navigation/native";
 
 const ChatScreen = () => {
   const [messages, setMessages] = useState([]);
   const [message, setMessage] = useState("");
+  const navigation = useNavigation();
   const heightWindow =
     JSON.stringify(Dimensions.get("window").height - 120) + "px";
   return (
     <ContainerChat>
       <ContainerHeader>
         <ContainerBack>
-          <Icon name="chevron-back-outline" size={25} color="#fff" />
+          <Icon
+            name="chevron-back-outline"
+            size={25}
+            color="#fff"
+            onPress={() => {
+              navigation.goBack();
+            }}
+          />
         </ContainerBack>
         <ContainerNameCategory>
           <TextNameCategory>React</TextNameCategory>
         </ContainerNameCategory>
-        <ContainerHeaderChat>
+        <ContainerHeaderChat
+          onPress={() => {
+            navigation.navigate("User");
+          }}
+        >
           <PhotoChat
             source={{
               uri: "https://miro.medium.com/v2/resize:fit:1400/1*g09N-jl7JtVjVZGcd-vL2g.jpeg",
@@ -39,7 +53,9 @@ const ChatScreen = () => {
         </ContainerHeaderChat>
       </ContainerHeader>
       <ContainerMessages heightWindow={heightWindow}>
-        <ContainerChatMessages></ContainerChatMessages>
+        <ContainerChatMessages>
+          <Ballon />
+        </ContainerChatMessages>
         <ContainerFormMessage>
           <InputMessage
             placeholder="Digite seu texto"

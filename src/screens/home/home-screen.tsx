@@ -11,11 +11,18 @@ import {
   TitleGridMenu,
   TitleHeader,
 } from "./home-style";
+import { useNavigation } from "@react-navigation/native";
 
 const HomeScreen = () => {
+  const navigation = useNavigation();
   return (
     <Container>
-      <ContainerHeader>
+      <ContainerHeader
+        onPress={() => {
+          navigation.navigate("User");
+          console.log("foi");
+        }}
+      >
         <Photo source={require("../../../assets/icon.png")} />
         <ContainerTitlesHeader>
           <TitleHeader>João Victor</TitleHeader>

@@ -4,9 +4,10 @@ export const Container = styled.View`
   background: #2b2c32;
   display: flex;
   width: 100%;
+  height: 100%;
 `;
 
-export const ContainerHeader = styled.View`
+export const ContainerHeader = styled.TouchableOpacity`
   display: flex;
   flex-direction: row;
   column-gap: 10px;
